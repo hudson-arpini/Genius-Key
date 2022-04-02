@@ -11,7 +11,27 @@
 </head>
 
 <body>
-  <div id="piano">
+
+  <main>
+    <button id="voltar" class="none">Voltar</button>
+    <button id="start" class="none">Começar</button>
+    <h1 class="title">Genius Key</h1>
+    <div id="main-screen">
+      <div class="menu">
+        <h2>Menu</h2>
+        <button class="btn" id="facil">Fácil</button>
+        <button class="btn" id="medio">Médio</button>
+        <button class="btn" id="dificil">Difícil</button>
+        <button class="btn" id="livre">Modo Livre</button>
+      </div>
+      <div class="instructions">
+        <h2>Instruções</h2>
+        <p>Após escolher a dificuldade, memorize e reproduza a sequência que o teclado irá tocar. Caso deseje apenas praticar suas habilidades musicais, utilize o Modo Livre</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="piano" class="none">
     <div id="piano-container" class="keys">
       <li>
         <div class="white key" data-key="65" data-note="C"><span>A</span>
