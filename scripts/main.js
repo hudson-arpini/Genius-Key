@@ -87,7 +87,11 @@ let jogarDerrota = document.querySelector("#jogarDerrota")
 
 //EVENT LISTENERS
 
+//BOTÕES DO MENU
+
 facil.addEventListener("click", ()=>{
+  jogador=[]
+  sequencia=[]
   if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"} 
   else {telaPrincipal.style.display = "none"}
     piano.classList.toggle("none")
@@ -97,6 +101,8 @@ facil.addEventListener("click", ()=>{
 })
 
 medio.addEventListener("click", ()=>{
+  jogador=[]
+  sequencia=[]
   if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
   else {telaPrincipal.style.display = "none"}
     piano.classList.toggle("none")
@@ -106,6 +112,8 @@ medio.addEventListener("click", ()=>{
 })
 
 dificil.addEventListener("click", ()=>{
+  jogador=[]
+  sequencia=[]
   if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
   else {telaPrincipal.style.display = "none"}
     piano.classList.toggle("none")
@@ -115,11 +123,15 @@ dificil.addEventListener("click", ()=>{
 })
 
 livre.addEventListener("click", ()=>{
+  jogador=[]
+  sequencia=[]
   if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
   else {telaPrincipal.style.display = "none";}
     piano.classList.toggle("none")
     voltar.classList.toggle("none")
 })
+
+//BOTÕES DA TELA DO PIANO
 
 voltar.addEventListener("click", ()=>{
     if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
@@ -134,6 +146,8 @@ voltar.addEventListener("click", ()=>{
 start.addEventListener("click",()=>{
     genius(dificuldade)
   })
+
+  //BOTÕES DE TELA DE RESULTADO
 
 voltarVitoria.addEventListener("click", ()=>{
     if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
@@ -170,6 +184,7 @@ jogarDerrota.addEventListener("click",()=>{
   let sequencia = []
   let genius = (dificuldade) => {
     numTeclas = []
+    jogador = []
     //CRIANDO UM ARRAY COM OS KEYCODES
     keys.forEach((key) => {
       numTeclas.push(key.dataset.key)
@@ -184,10 +199,15 @@ jogarDerrota.addEventListener("click",()=>{
     //TOCANDO AS NOTAS DA SEQUENCIA
     let k=0
     let id = setInterval(()=>{
-        audio(sequencia[k])
-        document.querySelector(`[data-key="${sequencia[k]}"]`).classList.add ("playing")
-        k++
-        if(k === dificuldade){clearInterval(id)}
-      },1500)
+      audio(sequencia[k])
+      document.querySelector(`[data-key="${sequencia[k]}"]`).classList.add ("playing")
+      k++
+      if(k === dificuldade){clearInterval(id)}
+    //PARANDO DE TOCAR QUANDO VOLTAR AO MENU
+      if(piano.classList.contains("none")){
+        document.querySelectorAll("audio").forEach( elem => elem.pause())
+        keys.forEach((key) => {key.classList.remove("playing")})
+      }
+    },1500)   
   }
   

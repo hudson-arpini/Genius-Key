@@ -27,68 +27,6 @@ main{
     margin-top: 10px;
 }
 
-/*BOTÕES VOLTAR E COMEÇAR */
-
-#voltar{
-    width: 120px;
-    height: 30px;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: var(--base-color);
-    color:white;
-    position: relative;
-    right: 400px;
-    top: 40px;
-}
-
-#start{
-    width: 120px;
-    height: 30px;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: var(--base-color);
-    color:white;
-    position: relative;
-    right: 400px;
-    top: 60px;
-}
-
-/* TELAS DE RESULTADO */
-
-.resultDiv{
-    position: absolute;
-    left: 418px;
-    top: 70px;
-    background-color: var(--bg-color);
-    border: 1px solid #824601;
-    width: 400px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.result{
-    font-size: 24px;
-    margin-top: 10px;
-    margin-bottom: -px;
-}
-.resultBtn{
-    width: 150px;
-    height: 30px;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: var(--base-color);
-    color:white;
-    margin:0 10px 0 10px
-}
-
-/* CLASSE RESPONSÁVEL POR FAZER A INTERAÇÃO ENTRE TELAS */
-
-.none{
-    display: none;
-}
-
 /* TELA PRINCIPAL */
 
 .title{
@@ -134,6 +72,66 @@ h2{
     text-align: center;
     color: var(--base-color);
     font-size: 25px;
+}
+
+/*BOTÕES VOLTAR E COMEÇAR */
+
+#voltar{
+    width: 120px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--base-color);
+    color:white;
+    position: relative;
+    right: 400px;
+    top: 40px;
+}
+
+#start{
+    width: 120px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--base-color);
+    color:white;
+    position: relative;
+    right: 400px;
+    top: 60px;
+}
+
+/* TELAS DE RESULTADO */
+
+.resultDiv{
+    background-color: var(--bg-color);
+    border: 1px solid #824601;
+    width: 400px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: -20px;
+}
+
+.result{
+    font-size: 24px;
+    margin-top: 10px;
+}
+.resultBtn{
+    width: 160px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: var(--base-color);
+    color:white;
+    margin:0 10px 0 10px
+}
+
+/* CLASSE RESPONSÁVEL POR FAZER A INTERAÇÃO ENTRE TELAS */
+
+.none{
+    display: none;
 }
 
 /* PIANO */
