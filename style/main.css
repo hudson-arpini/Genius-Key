@@ -193,3 +193,14 @@ span{
     font-weight: 600;
     color: var(--base-color);
 }
+
+footer{
+    margin-top: 50px;
+    color: var(--white);
+    text-align: center;
+    font-size: 20px;
+}
+
+footer a {
+    color: var(--base-color);
+}
