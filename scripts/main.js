@@ -26,7 +26,6 @@ let removePlayingClass = (event) => {
   event.target.classList.remove('playing')
 }
 
-
 //FUNÇÃO PRINCIPAL: DISPARAR TODOS OS GATILHOS QUANDO UMA TECLA É ATIVADA
 let jogador =[]
 let play = (event) => {
@@ -39,10 +38,9 @@ let play = (event) => {
     addplayingClass(key)
     //TESTES DE VITÓRIA OU DERROTA DO GENIUS
     jogador.push(keyCode)
-    console.log(jogador)
     if(jogador.length === sequencia.length){
-      if(JSON.stringify(jogador) === JSON.stringify(sequencia)) {window.alert("Você venceu!")}
-      else{window.alert("Que pena, tente novamente")}
+      if(JSON.stringify(jogador) === JSON.stringify(sequencia)) {vitoria.classList.toggle("none")}
+      else{derrota.classList.toggle("none")}
       jogador = []
     }
   }
@@ -64,12 +62,30 @@ window.addEventListener("keydown", play)
 let telaPrincipal = document.querySelector("#main-screen")
 let piano = document.querySelector("#piano")
 
+// BOTÕES DA TELA PRINCIPAL
+
 let facil = document.querySelector("#facil")
 let medio = document.querySelector("#medio")
 let dificil = document.querySelector("#dificil")
 let livre = document.querySelector("#livre")
+
+//BOTÕES DAS TELAS DE JOGO
+
 let voltar = document.querySelector("#voltar")
 let start = document.querySelector("#start")
+
+//TELAS DE RESULTADO
+
+let vitoria = document.querySelector("#vitoria")
+let derrota = document.querySelector("#derrota")
+
+//BOTÕES DAS TELAS DE RESULTADO
+let voltarVitoria = document.querySelector("#voltarVitoria")
+let voltarDerrota = document.querySelector("#voltarDerrota")
+let jogarVitoria = document.querySelector("#jogarVitoria")
+let jogarDerrota = document.querySelector("#jogarDerrota")
+
+//EVENT LISTENERS
 
 facil.addEventListener("click", ()=>{
   if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"} 
@@ -111,12 +127,43 @@ voltar.addEventListener("click", ()=>{
       piano.classList.toggle("none")
       voltar.classList.toggle("none")
       start.classList.add("none")
+      derrota.classList.add("none")
+      vitoria.classList.add("none")
   })
 
 start.addEventListener("click",()=>{
     genius(dificuldade)
-    
-})
+  })
+
+voltarVitoria.addEventListener("click", ()=>{
+    if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
+    else {telaPrincipal.style.display = "none";}
+      piano.classList.toggle("none")
+      voltar.classList.toggle("none")
+      start.classList.add("none")
+      derrota.classList.add("none")
+      vitoria.classList.add("none")
+  })
+
+jogarVitoria.addEventListener("click",()=>{
+    genius(dificuldade)
+    vitoria.classList.add("none")
+  })
+
+voltarDerrota.addEventListener("click", ()=>{
+    if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
+    else {telaPrincipal.style.display = "none";}
+      piano.classList.toggle("none")
+      voltar.classList.toggle("none")
+      start.classList.add("none")
+      derrota.classList.add("none")
+      vitoria.classList.add("none")
+  })
+
+jogarDerrota.addEventListener("click",()=>{
+    genius(dificuldade)
+    derrota.classList.add("none")
+  })
 
   //FUNÇÕES DO GENIUS
 
@@ -142,12 +189,5 @@ start.addEventListener("click",()=>{
         k++
         if(k === dificuldade){clearInterval(id)}
       },1500)
-      console.log(sequencia)
   }
   
-
-
-  /*FUNÇÕES DO JOGADOR
-    let teste = () => {
-    if(JSON.stringify(jogador) == JSON.stringify(sequencia)) {window.alert("Você venceu!")}
-    }*/
