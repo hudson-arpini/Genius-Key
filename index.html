@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Genius Key</title>
-
   <link rel="stylesheet" href="./style/main.css">
   
 </head>
@@ -13,6 +12,7 @@
 <body>
 
   <main>
+    
     <button id="voltar" class="none">Voltar</button>
     <button id="start" class="none">Começar</button>
     <h1 class="title">Genius Key</h1>
@@ -29,62 +29,77 @@
         <p>Após escolher a dificuldade, memorize e reproduza a sequência que o teclado irá tocar. Caso deseje apenas praticar suas habilidades musicais, utilize o Modo Livre</p>
       </div>
     </div>
-  </main>
+  
+  <div id="valendo" class="none">Valendo!!!</div>
+
+  <div class="resultDiv none" id="vitoria">
+    <span class="result">Parabéns, você venceu!</span>
+    <button id="voltarVitoria" class="resultBtn">Voltar ao Menu</button>
+    <button id="jogarVitoria" class="resultBtn">Jogar Novamente</button>
+  </div>
+
+  <div class="resultDiv none" id="derrota">
+    <span class="result">"Que pena, tente novamente"</span>
+    <button id="voltarDerrota" class="resultBtn">Voltar ao Menu</button>
+    <button id="jogarDerrota"  class="resultBtn">Tentar Novamente</button>
+  </div>
+
+</main>
 
   <div id="piano" class="none">
     <div id="piano-container" class="keys">
       <li>
-        <div class="white key" data-key="65" data-note="C"><span>A</span>
+        <div class="white key" data-key="65"><span>A</span>
         </div>
-        <div class="black key sharp" data-key="87" data-note="C#"><span>W</span>
-        </div>
-      </li>
-      <li>
-        <div class="white key" data-key="83" data-note="D"><span>S</span>
-        </div>
-        <div class="black key sharp" data-key="69" data-note="D#"><span>E</span>
+        <div class="black key sharp" data-key="87"><span>W</span>
         </div>
       </li>
       <li>
-        <div class="white key" data-key="68" data-note="E"><span>D</span>
+        <div class="white key" data-key="83"><span>S</span>
+        </div>
+        <div class="black key sharp" data-key="69"><span>E</span>
         </div>
       </li>
       <li>
-        <div class="white key" data-key="70" data-note="F"><span>F</span>
-        </div>
-        <div class="black key sharp" data-key="84" data-note="F#"><span>T</span>
+        <div class="white key" data-key="68"><span>D</span>
         </div>
       </li>
       <li>
-        <div class="white key" data-key="71" data-note="G"><span>G</span>
+        <div class="white key" data-key="70" ><span>F</span>
         </div>
-        <div class="black key sharp" data-key="89" data-note="G#"><span>Y</span>
-        </div>
-      </li>
-      <li>
-        <div class="white key" data-key="72" data-note="A"><span>H</span>
-        </div>
-        <div class="black key sharp" data-key="85" data-note="A#"><span>U</span>
+        <div class="black key sharp" data-key="84" ><span>T</span>
         </div>
       </li>
       <li>
-        <div class="white key" data-key="74" data-note="B"><span>J</span>
+        <div class="white key" data-key="71" ><span>G</span>
+        </div>
+        <div class="black key sharp" data-key="89" ><span>Y</span>
         </div>
       </li>
       <li>
-        <div class="white key" data-key="75" data-note="C"><span>K</span>
+        <div class="white key" data-key="72"><span>H</span>
         </div>
-        <div class="black key sharp" data-key="79" data-note="C#"><span>O</span>
-        </div>
-      </li>
-      <li>
-        <div class="white key" data-key="76" data-note="D"><span>L</span>
-        </div>
-        <div class="black key sharp" data-key="80" data-note="D#"><span>P</span>
+        <div class="black key sharp" data-key="85"><span>U</span>
         </div>
       </li>
       <li>
-        <div class="white key" data-key="186" data-note="E"><span>Ç</span>
+        <div class="white key" data-key="74"><span>J</span>
+        </div>
+      </li>
+      <li>
+        <div class="white key" data-key="75"><span>K</span>
+        </div>
+        <div class="black key sharp" data-key="79"><span>O</span>
+        </div>
+      </li>
+      <li>
+        <div class="white key" data-key="76"><span>L</span>
+        </div>
+        <div class="black key sharp" data-key="80"><span>P</span>
+        </div>
+      </li>
+      <li>
+        <div class="white key" data-key="186"><span>Ç</span>
         </div>
       </li>
     </div>
@@ -110,6 +125,7 @@
     <audio data-key="186" src="./assets/sounds/056.wav"></audio>
   </section>
 
+  <footer>By <a target=”_blank” href="https://www.linkedin.com/in/hudson-arpini-91757721a/">Hudson Arpini</a></footer>
 <script src="./scripts/main.js" defer></script>
 </body>
 

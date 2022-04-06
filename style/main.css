@@ -1,3 +1,5 @@
+/* CSS GERAL */
+
 *{
     margin:0;
     padding:0;
@@ -14,7 +16,7 @@ body{
 
 :root {
     --base-color: #fd951f;
-    --bg-color: #130f0d;
+    --bg-color: rgb(33, 21, 21);
     --white: #f0f0f9;
 }
 
@@ -23,47 +25,21 @@ main{
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    padding: 0px;
 }
 
-#voltar{
-    width: 120px;
-    height: 30px;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: var(--base-color);
-    color:white;
-    position: relative;
-    right: 400px;
-    top: 40px;
-}
-
-#start{
-    width: 120px;
-    height: 30px;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: var(--base-color);
-    color:white;
-    position: relative;
-    right: 400px;
-    top: 60px;
-}
-
-.none{
-    display: none;
-}
+/* TELA PRINCIPAL */
 
 .title{
     color: var(--base-color);
     font-size: 55px;
-    margin-top: -5px;
+    position: absolute;
 }
 
 #main-screen{
     display: flex;
     justify-content: space-between;
     width: 800px;
+    margin-top: 60px;
 }
 
 h2{
@@ -98,11 +74,80 @@ h2{
     font-size: 25px;
 }
 
+/*BOTÕES VOLTAR E COMEÇAR */
+
+#voltar{
+    width: 120px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--base-color);
+    color:white;
+    position: relative;
+    right: 400px;
+    top: 40px;
+}
+
+#start{
+    width: 120px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--base-color);
+    color:white;
+    position: relative;
+    right: 400px;
+    top: 60px;
+}
+
+#valendo{
+    font-size: 40px;
+    color: var(--base-color);
+    margin: 20px auto 0px auto;
+}
+
+/* TELAS DE RESULTADO */
+
+.resultDiv{
+    background-color: var(--bg-color);
+    border: 1px solid #824601;
+    width: 400px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: -20px;
+    border-radius: 10px;
+}
+
+.result{
+    font-size: 24px;
+    margin-top: 10px;
+}
+.resultBtn{
+    width: 160px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: var(--base-color);
+    color:white;
+    margin:0 10px 0 10px
+}
+
+/* CLASSE RESPONSÁVEL POR FAZER A INTERAÇÃO ENTRE TELAS */
+
+.none{
+    display: none;
+}
+
+/* PIANO */
+
 #piano{
     width:100%;
     max-width:600px;
     height:300px;
-    margin:16px auto;
+    margin: 70px auto;
     border-radius:20px 20px 8px 8px;
     overflow:hidden;
     background:black;
@@ -119,6 +164,8 @@ h2{
     display:-ms-flexbox;
     display:flex
 }
+
+/* TECLAS DO PIANO */
 
 #piano-container li{
     width:14.28%;
@@ -191,5 +238,18 @@ span{
     margin-bottom: 5px;
     font-size: 20px;
     font-weight: 600;
+    color: var(--base-color);
+}
+
+/* FOOTER */
+
+footer{
+    margin-top: 50px;
+    color: var(--white);
+    text-align: center;
+    font-size: 20px;
+}
+
+footer a {
     color: var(--base-color);
 }
