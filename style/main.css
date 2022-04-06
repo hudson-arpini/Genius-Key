@@ -100,6 +100,12 @@ h2{
     top: 60px;
 }
 
+#valendo{
+    font-size: 40px;
+    color: var(--base-color);
+    margin: 20px auto 0px auto;
+}
+
 /* TELAS DE RESULTADO */
 
 .resultDiv{
@@ -112,6 +118,7 @@ h2{
     flex-wrap: wrap;
     margin-top: 30px;
     margin-bottom: -20px;
+    border-radius: 10px;
 }
 
 .result{
@@ -140,7 +147,7 @@ h2{
     width:100%;
     max-width:600px;
     height:300px;
-    margin: 50px auto;
+    margin: 40px auto;
     border-radius:20px 20px 8px 8px;
     overflow:hidden;
     background:black;

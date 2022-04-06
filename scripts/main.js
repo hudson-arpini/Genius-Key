@@ -1,4 +1,4 @@
-//FUNÇÕES DO PIANO 
+//FUNÇÕES DO PIANO -----------------------------------------------------------------------------------------------------------------
 
 
 //PEGAR KEYCODE COM EVENTO DE KEYDOWN OU CLICK
@@ -27,7 +27,8 @@ let removePlayingClass = (event) => {
 }
 
 //FUNÇÃO PRINCIPAL: DISPARAR TODOS OS GATILHOS QUANDO UMA TECLA É ATIVADA
-let jogador =[]
+let jogador = []
+let available = false
 let play = (event) => {
   //PEGANDO O KEY CODE
     let keyCode = getKeyCode(event)
@@ -37,16 +38,23 @@ let play = (event) => {
     audio(keyCode)
     addplayingClass(key)
     //TESTES DE VITÓRIA OU DERROTA DO GENIUS
-    jogador.push(keyCode)
-    if(jogador.length === sequencia.length){
-      if(JSON.stringify(jogador) === JSON.stringify(sequencia)) {vitoria.classList.toggle("none")}
-      else{derrota.classList.toggle("none")}
-      jogador = []
+    if(available){
+      jogador.push(keyCode)
+      console.log(jogador)
+      if(jogador.length === sequencia.length){
+        if(JSON.stringify(jogador) === JSON.stringify(sequencia)) {
+          vitoria.classList.toggle("none") 
+          valendo.classList.add("none")}
+        else{
+          derrota.classList.toggle("none") 
+          valendo.classList.add("none")}
+        jogador = []
     }
+  }
   }
 
 
-//DOM DO PIANO
+//DOM DO PIANO--------------------------------------------------------------------------------------------------------------------------------
 
 const keys = document.querySelectorAll(".key")
 
@@ -57,7 +65,7 @@ keys.forEach((key) => {
 
 window.addEventListener("keydown", play)
 
-//DOM DAS TELAS
+//DOM DAS TELAS---------------------------------------------------------------------------------------------------------------------------------
 
 let telaPrincipal = document.querySelector("#main-screen")
 let piano = document.querySelector("#piano")
@@ -73,6 +81,7 @@ let livre = document.querySelector("#livre")
 
 let voltar = document.querySelector("#voltar")
 let start = document.querySelector("#start")
+let valendo = document.querySelector("#valendo")
 
 //TELAS DE RESULTADO
 
@@ -85,15 +94,15 @@ let voltarDerrota = document.querySelector("#voltarDerrota")
 let jogarVitoria = document.querySelector("#jogarVitoria")
 let jogarDerrota = document.querySelector("#jogarDerrota")
 
-//EVENT LISTENERS
+//EVENT LISTENERS------------------------------------------------------------------------------------------------------------------------
 
 //BOTÕES DO MENU
 
 facil.addEventListener("click", ()=>{
   jogador=[]
   sequencia=[]
-  if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"} 
-  else {telaPrincipal.style.display = "none"}
+  available=false
+  telaPrincipal.style.display = "none"
     piano.classList.toggle("none")
     voltar.classList.toggle("none")
     start.classList.toggle("none")
@@ -103,8 +112,8 @@ facil.addEventListener("click", ()=>{
 medio.addEventListener("click", ()=>{
   jogador=[]
   sequencia=[]
-  if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
-  else {telaPrincipal.style.display = "none"}
+  available=false
+  telaPrincipal.style.display = "none"
     piano.classList.toggle("none")
     voltar.classList.toggle("none")
     start.classList.toggle("none")
@@ -114,21 +123,21 @@ medio.addEventListener("click", ()=>{
 dificil.addEventListener("click", ()=>{
   jogador=[]
   sequencia=[]
-  if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
-  else {telaPrincipal.style.display = "none"}
-    piano.classList.toggle("none")
-    voltar.classList.toggle("none")
-    start.classList.toggle("none")
-    dificuldade = 9
+  available=false
+  telaPrincipal.style.display = "none"
+  piano.classList.toggle("none")
+  voltar.classList.toggle("none")
+  start.classList.toggle("none")
+  dificuldade = 9
 })
 
 livre.addEventListener("click", ()=>{
   jogador=[]
   sequencia=[]
-  if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
-  else {telaPrincipal.style.display = "none";}
-    piano.classList.toggle("none")
-    voltar.classList.toggle("none")
+  available=false
+  telaPrincipal.style.display = "none"
+  piano.classList.toggle("none")
+  voltar.classList.toggle("none")
 })
 
 //BOTÕES DA TELA DO PIANO
@@ -141,10 +150,16 @@ voltar.addEventListener("click", ()=>{
       start.classList.add("none")
       derrota.classList.add("none")
       vitoria.classList.add("none")
+      valendo.classList.add("none")
   })
 
 start.addEventListener("click",()=>{
+    available=false
     genius(dificuldade)
+    setTimeout (()=>{
+      available=true
+      if (telaPrincipal.style.display === "none"){valendo.classList.remove("none")}
+    },dificuldade*1700)
   })
 
   //BOTÕES DE TELA DE RESULTADO
@@ -157,11 +172,17 @@ voltarVitoria.addEventListener("click", ()=>{
       start.classList.add("none")
       derrota.classList.add("none")
       vitoria.classList.add("none")
+      valendo.classList.add("none")
   })
 
 jogarVitoria.addEventListener("click",()=>{
+    available=false
     genius(dificuldade)
     vitoria.classList.add("none")
+    setTimeout (()=>{
+      available=true
+      if (telaPrincipal.style.display === "none"){valendo.classList.remove("none")}
+    },dificuldade*1700)
   })
 
 voltarDerrota.addEventListener("click", ()=>{
@@ -172,11 +193,17 @@ voltarDerrota.addEventListener("click", ()=>{
       start.classList.add("none")
       derrota.classList.add("none")
       vitoria.classList.add("none")
+      valendo.classList.add("none")
   })
 
 jogarDerrota.addEventListener("click",()=>{
+    available=false
     genius(dificuldade)
     derrota.classList.add("none")
+    setTimeout (()=>{
+      available=true
+      if (telaPrincipal.style.display === "none"){valendo.classList.remove("none")}
+    },dificuldade*1700)
   })
 
   //FUNÇÕES DO GENIUS
