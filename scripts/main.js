@@ -145,8 +145,8 @@ livre.addEventListener("click", ()=>{
 voltar.addEventListener("click", ()=>{
     if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
     else {telaPrincipal.style.display = "none";}
-      piano.classList.toggle("none")
-      voltar.classList.toggle("none")
+      piano.classList.add("none")
+      voltar.classList.add("none")
       start.classList.add("none")
       derrota.classList.add("none")
       vitoria.classList.add("none")
@@ -156,9 +156,16 @@ voltar.addEventListener("click", ()=>{
 start.addEventListener("click",()=>{
     available=false
     genius(dificuldade)
+    voltar.classList.add("none")
+    start.classList.add("none")
+    valendo.classList.add("none")
     setTimeout (()=>{
       available=true
-      if (telaPrincipal.style.display === "none"){valendo.classList.remove("none")}
+      if (telaPrincipal.style.display === "none"){
+        valendo.classList.remove("none")
+        voltar.classList.remove("none")
+        start.classList.remove("none")
+      }
     },dificuldade*1700)
   })
 
@@ -167,8 +174,8 @@ start.addEventListener("click",()=>{
 voltarVitoria.addEventListener("click", ()=>{
     if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
     else {telaPrincipal.style.display = "none";}
-      piano.classList.toggle("none")
-      voltar.classList.toggle("none")
+      piano.classList.add("none")
+      voltar.classList.add("none")
       start.classList.add("none")
       derrota.classList.add("none")
       vitoria.classList.add("none")
@@ -178,10 +185,16 @@ voltarVitoria.addEventListener("click", ()=>{
 jogarVitoria.addEventListener("click",()=>{
     available=false
     genius(dificuldade)
+    voltar.classList.add("none")
+    start.classList.add("none")
     vitoria.classList.add("none")
     setTimeout (()=>{
       available=true
-      if (telaPrincipal.style.display === "none"){valendo.classList.remove("none")}
+      if (telaPrincipal.style.display === "none"){
+        valendo.classList.remove("none")
+        voltar.classList.remove("none")
+        start.classList.remove("none")
+      }
     },dificuldade*1700)
   })
 
@@ -199,10 +212,16 @@ voltarDerrota.addEventListener("click", ()=>{
 jogarDerrota.addEventListener("click",()=>{
     available=false
     genius(dificuldade)
+    voltar.classList.add("none")
+    start.classList.add("none")
     derrota.classList.add("none")
     setTimeout (()=>{
       available=true
-      if (telaPrincipal.style.display === "none"){valendo.classList.remove("none")}
+      if (telaPrincipal.style.display === "none"){
+        valendo.classList.remove("none")
+        voltar.classList.remove("none")
+        start.classList.remove("none")
+      }
     },dificuldade*1700)
   })
 
@@ -230,11 +249,12 @@ jogarDerrota.addEventListener("click",()=>{
       document.querySelector(`[data-key="${sequencia[k]}"]`).classList.add ("playing")
       k++
       if(k === dificuldade){clearInterval(id)}
-    //PARANDO DE TOCAR QUANDO VOLTAR AO MENU
+      //PARANDO DE TOCAR QUANDO VOLTAR AO MENU
       if(piano.classList.contains("none")){
         document.querySelectorAll("audio").forEach( elem => elem.pause())
         keys.forEach((key) => {key.classList.remove("playing")})
       }
-    },1500)   
+    },1500)
+    
   }
   
