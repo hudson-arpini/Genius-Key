@@ -142,15 +142,24 @@ livre.addEventListener("click", ()=>{
 
 //BOTÕES DA TELA DO PIANO
 
+class controles {
+
+  backtoMenu(){
+    piano.classList.add("none")
+    voltar.classList.add("none")
+    start.classList.add("none")
+    derrota.classList.add("none")
+    vitoria.classList.add("none")
+    valendo.classList.add("none")
+  }
+}
+
+let ctrPiano = new controles
+
 voltar.addEventListener("click", ()=>{
     if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
     else {telaPrincipal.style.display = "none";}
-      piano.classList.add("none")
-      voltar.classList.add("none")
-      start.classList.add("none")
-      derrota.classList.add("none")
-      vitoria.classList.add("none")
-      valendo.classList.add("none")
+    ctrPiano.backtoMenu()
   })
 
 start.addEventListener("click",()=>{
@@ -174,12 +183,7 @@ start.addEventListener("click",()=>{
 voltarVitoria.addEventListener("click", ()=>{
     if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
     else {telaPrincipal.style.display = "none";}
-      piano.classList.add("none")
-      voltar.classList.add("none")
-      start.classList.add("none")
-      derrota.classList.add("none")
-      vitoria.classList.add("none")
-      valendo.classList.add("none")
+      ctrPiano.backtoMenu()
   })
 
 jogarVitoria.addEventListener("click",()=>{
@@ -201,12 +205,7 @@ jogarVitoria.addEventListener("click",()=>{
 voltarDerrota.addEventListener("click", ()=>{
     if (telaPrincipal.style.display === "none") {telaPrincipal.style.display = "flex"}
     else {telaPrincipal.style.display = "none";}
-      piano.classList.toggle("none")
-      voltar.classList.toggle("none")
-      start.classList.add("none")
-      derrota.classList.add("none")
-      vitoria.classList.add("none")
-      valendo.classList.add("none")
+      ctrPiano.backtoMenu()
   })
 
 jogarDerrota.addEventListener("click",()=>{
